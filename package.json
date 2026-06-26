@@ -20,5 +20,8 @@
   "packageManager": "yarn@4.5.3",
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.12.1"
   }
 }

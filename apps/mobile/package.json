@@ -13,6 +13,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@meshtastic/js": "^2.6.0-0",
     "@quakelink/consensus": "*",
     "@quakelink/crypto": "*",
     "@quakelink/identity": "*",
@@ -25,6 +26,7 @@
     "expo": "~52.0.0",
     "expo-build-properties": "~0.13.0",
     "expo-linking": "~7.0.5",
+    "expo-location": "~18.0.10",
     "expo-router": "~4.0.0",
     "expo-secure-store": "~14.0.0",
     "expo-status-bar": "~2.0.0",

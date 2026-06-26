@@ -1158,6 +1158,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bufbuild/protobuf@npm:^2.12.1, @bufbuild/protobuf@npm:^2.2.3":
+  version: 2.12.1
+  resolution: "@bufbuild/protobuf@npm:2.12.1"
+  checksum: 10c0/2d40cfe4ec3bb0e3f06ab2e28771dc5dc566eaacb055fbe893d75621b0407d0272d48f40a490ad47ded839ed541514e1af71bb13af024b3ae36ef0c56d56dda9
+  languageName: node
+  linkType: hard
+
 "@emotion/is-prop-valid@npm:^0.8.2":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
@@ -2014,6 +2021,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@meshtastic/js@npm:^2.6.0-0":
+  version: 2.6.0-0
+  resolution: "@meshtastic/js@npm:2.6.0-0"
+  dependencies:
+    "@bufbuild/protobuf": "npm:^2.2.3"
+    "@meshtastic/protobufs": "npm:@jsr/meshtastic__protobufs@^2.6.0"
+    crc: "npm:^4.3.2"
+    ste-simple-events: "npm:^3.0.11"
+    tslog: "npm:^4.9.3"
+  checksum: 10c0/cfd630a2bc08dd7664f7ac8db6a61d95034fc2ea10ad95f05b1a3fb27ef8250e35a600cee8d6e45b2dba73aefebdd0cb210f6cd2c3739463bb729efdaef7810e
+  languageName: node
+  linkType: hard
+
+"@meshtastic/protobufs@npm:@jsr/meshtastic__protobufs@^2.6.0":
+  version: 2.7.23
+  resolution: "@jsr/meshtastic__protobufs@npm:2.7.23::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fmeshtastic__protobufs%2F2.7.23.tgz"
+  dependencies:
+    "@bufbuild/protobuf": "npm:^2.2.3"
+  checksum: 10c0/ebfec8b0e7028ec3ab07898f7649039d0222966d284629886a13283f7b26082c47eea91f5f9f4bda1b2923f4875624338176557eb6d3f948a4b36ef71bf4a458
+  languageName: node
+  linkType: hard
+
 "@motionone/animation@npm:^10.12.0":
   version: 10.18.0
   resolution: "@motionone/animation@npm:10.18.0"
@@ -2207,6 +2236,7 @@ __metadata:
   resolution: "@quakelink/mobile@workspace:apps/mobile"
   dependencies:
     "@babel/core": "npm:^7.25.0"
+    "@meshtastic/js": "npm:^2.6.0-0"
     "@quakelink/consensus": "npm:*"
     "@quakelink/crypto": "npm:*"
     "@quakelink/identity": "npm:*"
@@ -2221,6 +2251,7 @@ __metadata:
     expo: "npm:~52.0.0"
     expo-build-properties: "npm:~0.13.0"
     expo-linking: "npm:~7.0.5"
+    expo-location: "npm:~18.0.10"
     expo-router: "npm:~4.0.0"
     expo-secure-store: "npm:~14.0.0"
     expo-status-bar: "npm:~2.0.0"
@@ -5631,6 +5662,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"crc@npm:^4.3.2":
+  version: 4.3.2
+  resolution: "crc@npm:4.3.2"
+  peerDependencies:
+    buffer: ">=6.0.3"
+  peerDependenciesMeta:
+    buffer:
+      optional: true
+  checksum: 10c0/61b36f9be3ade1bea49bd45a7e59ecbe1c2d75f043425680dcb37ebf753be65517c41bc3d485d63b2016d7c7fa5669854d366775e18fe698c95de27e27c41528
+  languageName: node
+  linkType: hard
+
 "cross-fetch@npm:^3.1.5":
   version: 3.2.0
   resolution: "cross-fetch@npm:3.2.0"
@@ -6363,6 +6406,15 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10c0/403a34d7464d398a2d141237172bb6b4e2bdb302940e55cee0fa52f49e9b70056005cd04cce44483daa3d9573b963714fb55af03ab01999853d89bee9faa6755
+  languageName: node
+  linkType: hard
+
+"expo-location@npm:~18.0.10":
+  version: 18.0.10
+  resolution: "expo-location@npm:18.0.10"
+  peerDependencies:
+    expo: "*"
+  checksum: 10c0/d372f42b0ccca55dd39125539ec347db753b236f26d23eeb6630f099d3bcc6604436a37eadd76ad421366ee956b9815948a72c1c0622c336f66dfa0022f87dbc
   languageName: node
   linkType: hard
 
@@ -9178,6 +9230,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "quakelink@workspace:."
   dependencies:
+    "@bufbuild/protobuf": "npm:^2.12.1"
     turbo: "npm:^2.3.3"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -10151,6 +10204,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ste-core@npm:^3.0.11":
+  version: 3.0.11
+  resolution: "ste-core@npm:3.0.11"
+  checksum: 10c0/f5af49bc0c423387f4900dcc509753fd3d588015fd7e861d00870778ab4f6eb0936addff12ca458636c3657a46ce16689197ab4e61576af149aad8e175e5b695
+  languageName: node
+  linkType: hard
+
+"ste-simple-events@npm:^3.0.11":
+  version: 3.0.11
+  resolution: "ste-simple-events@npm:3.0.11"
+  dependencies:
+    ste-core: "npm:^3.0.11"
+  checksum: 10c0/ed4632920b8fe221c13f66087d32db07811e35894af0387f7430794592555337a2deb2c3a5a3897ea5281363a19a910a50bde3220a78362e868f7c1e51a7aca6
+  languageName: node
+  linkType: hard
+
 "stream-buffers@npm:2.2.x, stream-buffers@npm:~2.2.0":
   version: 2.2.0
   resolution: "stream-buffers@npm:2.2.0"
@@ -10589,6 +10658,13 @@ __metadata:
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
+  languageName: node
+  linkType: hard
+
+"tslog@npm:^4.9.3":
+  version: 4.10.2
+  resolution: "tslog@npm:4.10.2"
+  checksum: 10c0/78b4bd5432e5c2b3fc611d6acefddd3c3f1f4f121c2d47028227d0930b85544b4c928ecd37e2c88908ff195a6f1b90f1783d5dda55bcaa62534cec6b9a2cee79
   languageName: node
   linkType: hard
 

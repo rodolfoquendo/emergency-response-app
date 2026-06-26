@@ -36,7 +36,7 @@ export async function loadContacts(): Promise<StoredContact[]> {
 export async function saveContact(contact: Omit<StoredContact, 'addedAt'>): Promise<void> {
   const contacts = await loadContacts();
   const exists   = contacts.findIndex((c) => c.signPublicKey === contact.signPublicKey);
-  const entry: StoredContact = { ...contact, addedAt: Date.now() };
+  const entry: StoredContact = { favorite: false, ...contact, addedAt: Date.now() };
 
   if (exists >= 0) {
     contacts[exists] = entry;
@@ -51,4 +51,13 @@ export async function deleteContact(signPublicKey: string): Promise<void> {
   const contacts = await loadContacts();
   const filtered = contacts.filter((c) => c.signPublicKey !== signPublicKey);
   await SecureStore.setItemAsync(KEY_CONTACTS, JSON.stringify(filtered));
+}
+
+export async function toggleFavoriteContact(signPublicKey: string): Promise<StoredContact[]> {
+  const contacts = await loadContacts();
+  const updated  = contacts.map((c) =>
+    c.signPublicKey === signPublicKey ? { ...c, favorite: !c.favorite } : c,
+  );
+  await SecureStore.setItemAsync(KEY_CONTACTS, JSON.stringify(updated));
+  return updated;
 }

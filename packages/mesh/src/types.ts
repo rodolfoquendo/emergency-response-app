@@ -1,4 +1,4 @@
-export type MessageType = 'chat' | 'alert' | 'sos' | 'seismic';
+export type MessageType = 'chat' | 'alert' | 'sos' | 'seismic' | 'location' | 'proof_request' | 'proof_response';
 
 export type MeshMessage = {
   id: string;

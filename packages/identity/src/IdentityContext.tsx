@@ -1,15 +1,16 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
-import { loadIdentity, saveIdentity, deleteIdentity, loadContacts, saveContact, deleteContact } from './store';
+import { loadIdentity, saveIdentity, deleteIdentity, loadContacts, saveContact, deleteContact, toggleFavoriteContact } from './store';
 import type { Identity, StoredContact } from './types';
 
 type IdentityContextValue = {
-  identity:       Identity | null;
-  contacts:       StoredContact[];
-  isLoading:      boolean;
-  createIdentity: (alias: string, phrase: string) => Promise<void>;
-  wipeIdentity:   () => Promise<void>;
-  addContact:     (contact: Omit<StoredContact, 'addedAt'>) => Promise<void>;
-  removeContact:  (signPublicKey: string) => Promise<void>;
+  identity:        Identity | null;
+  contacts:        StoredContact[];
+  isLoading:       boolean;
+  createIdentity:  (alias: string, phrase: string) => Promise<void>;
+  wipeIdentity:    () => Promise<void>;
+  addContact:      (contact: Omit<StoredContact, 'addedAt'>) => Promise<void>;
+  removeContact:   (signPublicKey: string) => Promise<void>;
+  toggleFavorite:  (signPublicKey: string) => Promise<void>;
 };
 
 const IdentityContext = createContext<IdentityContextValue | null>(null);
@@ -48,8 +49,13 @@ export function IdentityProvider({ children }: { children: ReactNode }) {
     setContacts((prev) => prev.filter((c) => c.signPublicKey !== signPublicKey));
   };
 
+  const toggleFavorite = async (signPublicKey: string) => {
+    const updated = await toggleFavoriteContact(signPublicKey);
+    setContacts(updated);
+  };
+
   return (
-    <IdentityContext.Provider value={{ identity, contacts, isLoading, createIdentity, wipeIdentity, addContact, removeContact }}>
+    <IdentityContext.Provider value={{ identity, contacts, isLoading, createIdentity, wipeIdentity, addContact, removeContact, toggleFavorite }}>
       {children}
     </IdentityContext.Provider>
   );

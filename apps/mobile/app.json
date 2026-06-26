@@ -17,6 +17,7 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.quakelink.app",
       "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "QuakeLink shares your GPS location over the mesh network when you trigger an emergency alert.",
         "NSMotionUsageDescription": "QuakeLink uses motion sensors to detect seismic activity.",
         "NSBluetoothAlwaysUsageDescription": "QuakeLink uses Bluetooth to connect with nearby devices for mesh messaging.",
         "NSBluetoothPeripheralUsageDescription": "QuakeLink uses Bluetooth to connect with nearby devices for mesh messaging."
@@ -29,12 +30,12 @@
         "backgroundColor": "#0f0f0f"
       },
       "permissions": [
+        "ACCESS_FINE_LOCATION",
         "BLUETOOTH",
         "BLUETOOTH_ADMIN",
         "BLUETOOTH_SCAN",
         "BLUETOOTH_CONNECT",
         "BLUETOOTH_ADVERTISE",
-        "ACCESS_FINE_LOCATION",
         "BODY_SENSORS"
       ]
     },

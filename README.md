@@ -84,6 +84,70 @@ All messages are end-to-end encrypted with `nacl.box` (X25519 + XSalsa20-Poly130
 
 ---
 
+## Meshtastic hardware
+
+QuakeLink extends its range dramatically when paired with Meshtastic LoRa devices. The phone connects to the device over BLE; the device handles all long-range RF. No additional software is needed — just flash Meshtastic firmware and pair.
+
+### Recommended devices
+
+| Device | Price | Notes |
+|---|---|---|
+| **LilyGo T-Beam Supreme** | ~$35–50 | Best all-around. Built-in GPS + battery management. Accepts any 18650 Li-ion cell. |
+| Heltec LoRa 32 v3 | ~$20 | Cheapest entry point. No GPS, requires external antenna for good range. |
+| RAK WisBlock 19003 | ~$40–80 | Most professional. Modular, weatherproof options available. |
+| Seeed SenseCAP T1000-E | ~$60 | Card-sized, very rugged. Best for carry or field deployment. |
+
+**Frequency band:** Use **868 MHz** for Venezuela and Latin America (ITU Region 2). Confirm local regulations before deploying — some countries use 915 MHz.
+
+### Where to source
+
+- **AliExpress** — LilyGo T-Beam and Heltec ship directly from the manufacturer. Search "LilyGo T-Beam 868" or "Heltec LoRa 32 v3". Shipping to Venezuela takes 3–6 weeks.
+- **Amazon** — faster shipping, higher price. Search "Meshtastic T-Beam".
+- **Meshtastic official store** — [meshtastic.org](https://meshtastic.org) links to verified sellers.
+- **Local electronics communities** — Telegram groups and WhatsApp groups focused on amateur radio (radioafición) in Venezuela often have members who import and resell devices.
+
+### Flashing Meshtastic firmware
+
+1. Download the firmware for your device from [meshtastic.org/downloads](https://meshtastic.org/downloads)
+2. Flash via USB using the [Meshtastic web flasher](https://flasher.meshtastic.org) (no tools required)
+3. Configure the device with the Meshtastic app — set region to `ANZ` or `EU_868` depending on your local band
+4. The device is now discoverable by QuakeLink over BLE
+
+### Deployment strategy for maximum coverage
+
+A single T-Beam on a rooftop or elevated position covers 3–8 km to the next node. Six nodes distributed across a city of 1–2 million people can cover the entire urban area. Recommended placement: water towers, school rooftops, church steeples, high-rise balconies.
+
+---
+
+## Radio range
+
+Range varies significantly with obstacles, antenna quality, and terrain.
+
+### Phone Bluetooth (BLE) — phone to phone directly
+
+| Environment | Typical range |
+|---|---|
+| Indoors / urban (walls, crowds) | 10–30 m |
+| Outdoors, open area | 50–100 m |
+| Outdoors, BLE 5.0, line-of-sight | up to 400 m |
+
+BLE is the baseline transport: it works with any two phones within range and requires no additional hardware.
+
+### LoRa — via Meshtastic device bridge
+
+The phone connects to a Meshtastic device over BLE; that device handles all RF. The phone itself adds no extra range — only the Meshtastic radio does.
+
+| Environment | Typical range |
+|---|---|
+| Dense urban (buildings, interference) | 1–3 km |
+| Suburban / light obstruction | 3–10 km |
+| Rural, flat terrain | 10–20 km |
+| Elevated position, good antenna | 30–50 km |
+
+LoRa mesh nodes relay packets automatically, so the effective network reach is the sum of all hops. A city with 10 Meshtastic nodes spread 2 km apart can cover 20 km end-to-end.
+
+---
+
 ## Earthquake consensus
 
 - **Confidence low** — 3–4 nodes or M2.0–3.4

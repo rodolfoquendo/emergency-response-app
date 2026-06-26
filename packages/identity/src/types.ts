@@ -15,4 +15,5 @@ export type Identity = {
 
 export type StoredContact = ContactCard & {
   addedAt: number;
+  favorite: boolean;
 };
