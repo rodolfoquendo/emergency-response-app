@@ -1,7 +1,8 @@
 {
-  "platforms": ["ios", "android"],
-  "ios": {
-    "modules": ["SeismographModule"]
+  "platforms": ["apple", "android"],
+  "apple": {
+    "modules": ["SeismographModule"],
+    "podspecPath": "./SeismographModule.podspec"
   },
   "android": {
     "modules": ["com.quakelink.seismograph.SeismographModule"]

@@ -2250,6 +2250,7 @@ __metadata:
     "@types/react": "npm:~18.3.12"
     expo: "npm:~52.0.0"
     expo-build-properties: "npm:~0.13.0"
+    expo-constants: "npm:~17.0.8"
     expo-linking: "npm:~7.0.5"
     expo-location: "npm:~18.0.10"
     expo-router: "npm:~4.0.0"
