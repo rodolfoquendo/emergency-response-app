@@ -1,0 +1,24 @@
+{
+  "name": "@quakelink/identity",
+  "version": "1.0.0",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "lint": "eslint src --ext .ts,.tsx",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@quakelink/crypto": "*",
+    "expo-secure-store": "~14.0.0",
+    "react": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "~18.3.12",
+    "typescript": "~5.8.3"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}

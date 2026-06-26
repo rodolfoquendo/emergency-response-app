@@ -1,0 +1,29 @@
+node_modules/
+.expo/
+dist/
+build/
+*.tsbuildinfo
+
+# Turbo
+.turbo/
+
+# iOS
+apps/mobile/ios/Pods/
+apps/mobile/ios/build/
+
+# Android
+apps/mobile/android/.gradle/
+apps/mobile/android/build/
+apps/mobile/android/app/build/
+
+# Env
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Yarn
+.yarn/cache
+.yarn/install-state.gz

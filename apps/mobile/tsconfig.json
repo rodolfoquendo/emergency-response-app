@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@quakelink/consensus": ["../../packages/consensus/src/index.ts"],
+      "@quakelink/crypto": ["../../packages/crypto/src/index.ts"],
+      "@quakelink/integrations": ["../../packages/integrations/src/index.ts"],
+      "@quakelink/identity": ["../../packages/identity/src/index.ts"],
+      "@quakelink/ui": ["../../packages/ui/src/index.ts"],
+      "@quakelink/seismograph": ["../../packages/seismograph/src/index.ts"],
+      "@quakelink/mesh": ["../../packages/mesh/src/index.ts"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.d.ts", "expo-env.d.ts"]
+}
