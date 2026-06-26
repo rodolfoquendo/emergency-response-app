@@ -8,11 +8,16 @@ const GRAVITY = 9.81;
 function estimateMagnitude(readings: SeismicReading[]): number {
   if (readings.length === 0) return 0;
   const recent = readings.slice(-20);
+  // Subtract 1g (GRAVITY) from the total vector magnitude to isolate dynamic
+  // acceleration; a phone lying still reads ~9.81 m/s² even at rest.
   const pgv = recent.reduce((max, r) => {
     const acc = Math.sqrt(r.x ** 2 + r.y ** 2 + r.z ** 2);
     return Math.max(max, Math.abs(acc - GRAVITY));
   }, 0);
-  // Rough empirical mapping: PGA (m/s²) → Richter-like magnitude
+  // Rough PGA (m/s²) → Richter-like magnitude.
+  // Reference point 0.001 m/s² ≈ M0; 0.8 scaling keeps the range sane for
+  // consumer accelerometers (not seismometers). Replace with a calibrated
+  // regional attenuation model if accuracy matters.
   if (pgv < 0.01) return 0;
   return Math.log10(pgv / 0.001) * 0.8;
 }

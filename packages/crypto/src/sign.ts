@@ -42,6 +42,9 @@ export function signEnvelope(
  */
 export function verifyEnvelope(envelope: SignedEnvelope): boolean {
   const age = Date.now() - envelope.timestamp;
+  // Reject messages older than 5 minutes (replay attack window).
+  // Allow up to 30 s of future timestamp to tolerate clock skew between nodes
+  // that have never synced against a time server.
   if (age > 5 * 60 * 1000 || age < -30_000) return false;
 
   const canonical = canonicalize(envelope.payload, envelope.timestamp);

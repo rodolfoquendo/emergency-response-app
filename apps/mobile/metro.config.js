@@ -15,6 +15,9 @@ config.resolver.nodeModulesPaths = [
   path.resolve(workspaceRoot, 'node_modules'),
 ];
 
+// Follow symlinks so Yarn workspace packages (node_modules/@quakelink/*) resolve
+config.resolver.unstable_enableSymlinks = true;
+
 // Tamagui: enable CSS interop
 config.resolver.sourceExts.push('mjs');
 

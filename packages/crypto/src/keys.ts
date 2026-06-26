@@ -28,6 +28,9 @@ export function deriveKeysFromPhrase(phrase: string): KeyBundle {
 }
 
 export function deriveKeysFromEntropy(entropy: Uint8Array): KeyBundle {
+  // Domain-separate the two seeds so sign and box keys are cryptographically
+  // independent even though they share the same entropy source. Changing the
+  // domain strings is a breaking change — all existing identities would rotate.
   const signSeed = sha256(concat(entropy, encode('quakelink-sign-v1')));
   const boxSeed  = sha256(concat(entropy, encode('quakelink-box-v1')));
 

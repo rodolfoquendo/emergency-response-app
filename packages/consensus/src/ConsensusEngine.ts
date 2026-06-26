@@ -53,7 +53,9 @@ export class ConsensusEngine {
     if (now - this.lastAlertAt < this.config.cooldownMs) return;
 
     this.lastAlertAt = now;
-    this.buffer.clear(); // reset after firing so same quake doesn't re-trigger
+    // Clear immediately so events already in the buffer don't re-fire the alert
+    // before cooldownMs expires (double-protection against the time-check above).
+    this.buffer.clear();
 
     const magnitudes  = events.map((e) => e.magnitude);
     const maxMag      = Math.max(...magnitudes);

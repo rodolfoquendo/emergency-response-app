@@ -1,7 +1,11 @@
 import { BleManager, type Device } from 'react-native-ble-plx';
 import type { MeshMessage, SendPayload } from './types';
 
-// Meshtastic BLE service/characteristic UUIDs
+// Official Meshtastic BLE GATT UUIDs — hardcoded by the Meshtastic firmware.
+// TORADIO: write packets to the device (phone → radio).
+// FROMRADIO: read packets from the device (radio → phone).
+// FROMNUM: notify-only; signals that a new packet is waiting on FROMRADIO.
+// Source: https://meshtastic.org/docs/development/device/ble-api/
 const MESHTASTIC_SERVICE = '6ba1b218-15a8-461f-9fa8-5d6646b9ac5d';
 const TORADIO_CHAR = 'f75c76d2-129e-4dad-a1dd-7866124401e7';
 const FROMRADIO_CHAR = '8ba2bcc2-ee02-4a55-a531-c525c5e454d5';
