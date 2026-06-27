@@ -18,6 +18,9 @@ config.resolver.nodeModulesPaths = [
 // Follow symlinks so Yarn workspace packages (node_modules/@quakelink/*) resolve
 config.resolver.unstable_enableSymlinks = true;
 
+// Resolve package.json "exports" subpaths (e.g. @bufbuild/protobuf/codegenv1)
+config.resolver.unstable_enablePackageExports = true;
+
 // Tamagui: enable CSS interop
 config.resolver.sourceExts.push('mjs');
 
