@@ -1,6 +1,7 @@
-import { YStack, XStack, Text, H3, Switch, Separator, Paragraph } from 'tamagui';
+import { YStack, XStack, Text, H3, Switch, Separator, Paragraph, Button } from 'tamagui';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
+import { requestAlertPermissions, openAppSettings } from '../../lib/alerts';
 
 export default function SettingsScreen() {
   const [bleEnabled, setBleEnabled] = useState(true);
@@ -53,6 +54,18 @@ export default function SettingsScreen() {
               <Switch.Thumb animation="quick" />
             </Switch>
           </XStack>
+          <Separator />
+          <Button size="$3" theme="blue" onPress={() => requestAlertPermissions()}>
+            Enable notifications
+          </Button>
+          <Button size="$3" onPress={openAppSettings}>
+            Open notification settings
+          </Button>
+          <Paragraph color="$colorSubtle" fontSize="$1">
+            For earthquake alerts to break through Silent / Focus, open settings and turn on
+            “Time Sensitive Notifications” (and add QuakeLink to any active Focus). A loud alarm
+            also plays through the speaker while the app is open, even on silent.
+          </Paragraph>
         </YStack>
 
         <YStack backgroundColor="$background" borderRadius="$4" padding="$4">

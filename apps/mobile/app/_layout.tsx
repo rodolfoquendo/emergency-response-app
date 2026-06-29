@@ -4,6 +4,8 @@ import { Stack, useRouter, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { tamaguiConfig } from '@quakelink/ui';
 import { IdentityProvider, useIdentity } from '@quakelink/identity';
+import { DirectBleProvider } from '../hooks/DirectBleProvider';
+import { configureAlerts } from '../lib/alerts';
 
 function NavigationGuard() {
   const { identity, isLoading } = useIdentity();
@@ -26,12 +28,18 @@ function NavigationGuard() {
 }
 
 export default function RootLayout() {
+  useEffect(() => {
+    configureAlerts();
+  }, []);
+
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="dark">
       <IdentityProvider>
-        <StatusBar style="light" />
-        <NavigationGuard />
-        <Stack screenOptions={{ headerShown: false }} />
+        <DirectBleProvider>
+          <StatusBar style="light" />
+          <NavigationGuard />
+          <Stack screenOptions={{ headerShown: false }} />
+        </DirectBleProvider>
       </IdentityProvider>
     </TamaguiProvider>
   );

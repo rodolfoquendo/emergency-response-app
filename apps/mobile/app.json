@@ -12,22 +12,29 @@
       "resizeMode": "contain",
       "backgroundColor": "#0f0f0f"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.quakelink.app",
+      "bundleIdentifier": "com.rodolfoquendo.quakelink",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "QuakeLink shares your GPS location over the mesh network when you trigger an emergency alert.",
         "NSMotionUsageDescription": "QuakeLink uses motion sensors to detect seismic activity.",
         "NSBluetoothAlwaysUsageDescription": "QuakeLink uses Bluetooth to connect with nearby devices for mesh messaging.",
-        "NSBluetoothPeripheralUsageDescription": "QuakeLink uses Bluetooth to connect with nearby devices for mesh messaging."
+        "NSBluetoothPeripheralUsageDescription": "QuakeLink uses Bluetooth to connect with nearby devices for mesh messaging.",
+        "UIBackgroundModes": [
+          "bluetooth-central",
+          "bluetooth-peripheral",
+          "audio"
+        ]
       }
     },
     "android": {
       "package": "com.quakelink.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#0f0f0f"
+        "backgroundColor": "#002048"
       },
       "permissions": [
         "ACCESS_FINE_LOCATION",
@@ -36,7 +43,10 @@
         "BLUETOOTH_SCAN",
         "BLUETOOTH_CONNECT",
         "BLUETOOTH_ADVERTISE",
-        "BODY_SENSORS"
+        "BODY_SENSORS",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_CONNECTED_DEVICE",
+        "POST_NOTIFICATIONS"
       ]
     },
     "plugins": [
@@ -45,8 +55,12 @@
       [
         "expo-build-properties",
         {
-          "ios": { "deploymentTarget": "16.0" },
-          "android": { "minSdkVersion": 26 }
+          "ios": {
+            "deploymentTarget": "16.0"
+          },
+          "android": {
+            "minSdkVersion": 26
+          }
         }
       ]
     ],
