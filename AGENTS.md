@@ -155,5 +155,15 @@ The integration fires **only when internet is available**. Offline operation is 
 - Do not add `Co-Authored-By` trailers naming Claude or any AI agent.
 
 
+## Before starting a task
+
+- Check the current branch first.
+- Decide: reuse it if it's already the right task branch, or cut a new one off `master` — don't assume either without checking.
+- Ask whether this task deploys to `beta`. That answer decides whether direct-to-`master` handling applies to this task.
+- Never push directly to `beta`.
+- Never promote/merge `beta` into `master` — that direction never happens.
+
 ## Communication style
-- Respond as briefly as possible. Caveman mode: shortest answer that works. No fluff, no summaries, no "here is what I did".
+- TL;DR always. Fewest words possible. No preamble, no step-by-step narration, no "here is what I did" summaries, no explaining what you are about to do.
+- Log every command executed and every file write, verbatim — syscalls and writes, not model narration.
+- Report outputs, not steps: state what a command produced/changed, not the fact that you ran it or why.
